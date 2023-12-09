@@ -30,7 +30,7 @@ import com.github.tehras.charts.bar.renderer.yaxis.SimpleYAxisDrawer
 @Composable
 fun BarGraph(
     title: String,
-    showRange: Boolean,
+    showDateRange: Boolean,
     data:  List<BarChartData.Bar>
 ){
     Card(
@@ -52,7 +52,7 @@ fun BarGraph(
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp, vertical = 14.dp)
             ) {
-                if(showRange) {
+                if(showDateRange) {
 
                     Text(text = "Transactions", fontWeight = FontWeight.W600, fontSize = 15.sp)
                     Spacer(modifier = Modifier.width(30.dp))

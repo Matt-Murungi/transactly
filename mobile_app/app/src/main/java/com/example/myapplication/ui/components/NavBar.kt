@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -29,7 +30,7 @@ fun BottonNavigationMenu(
     ) {
         BottomNavItem(isSelected = selectedScreen == 0, route = { onItemSelected(0)}, icon = Icons.Filled.AccountBox, label = "Dashboard")
         BottomNavItem(isSelected = selectedScreen == 1, route = { onItemSelected(1) }, icon = Icons.Filled.Check, label = "History")
-        BottomNavItem(isSelected = selectedScreen == 2, route = { onItemSelected(2) }, icon = Icons.Filled.AccountBox, label = "Dashboard")
+        BottomNavItem(isSelected = selectedScreen == 2, route = { onItemSelected(2) }, icon = Icons.Filled.Info, label = "Help")
     }
 
 }

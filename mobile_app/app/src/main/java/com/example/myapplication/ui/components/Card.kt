@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.ui.theme.Purple40
 
 @Composable
 fun SummaryCard(
@@ -45,22 +46,22 @@ modifier = Modifier.border(width = 0.9.dp, color = Color.LightGray, shape = Roun
             modifier = Modifier.padding(20.dp),
 
             ) {
-            Text(text = title, fontSize = 12.sp, fontWeight = FontWeight.W500, color = Color.Gray)
+            Text(text = title, fontSize = 18.sp, fontWeight = FontWeight.W600, color = Color.Gray)
             Spacer(modifier = Modifier.height(10.dp))
 
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = detail, fontSize = 15.sp, fontWeight = FontWeight.W600)
-                Spacer(modifier = Modifier.width(10.dp))
                 if (subtitle.isNotBlank()) {
                     if(subtitle.isNotBlank()){
-                        Text(text = subtitle, fontSize = 10.sp, fontWeight = FontWeight.W500, color = Color.Green)
+                        Text(text = subtitle, fontSize = 10.sp, fontWeight = FontWeight.W700, color = Color.Green)
                         Spacer(modifier = Modifier.height(3.dp))
 
                     }
                 }
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(text = detail, fontSize = 25.sp, fontWeight = FontWeight.W600, color=Color.DarkGray)
 
             }
 

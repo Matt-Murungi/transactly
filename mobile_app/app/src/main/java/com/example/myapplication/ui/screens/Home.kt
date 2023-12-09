@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -36,6 +37,7 @@ fun Greeting() {
     val selectedScreen = remember { mutableStateOf(0) } // Index of the currently selected screen
     Screen(bottomBar = {
         BottonNavigationMenu(selectedScreen = selectedScreen.value){
+            Log.d("TAG", "$it: ")
             selectedScreen.value = it
         }
     }, components = {
