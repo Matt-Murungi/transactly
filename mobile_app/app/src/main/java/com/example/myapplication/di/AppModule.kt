@@ -16,6 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    private const val BASE_URL = "https://ad8a-41-210-155-60.ngrok-free.app"
 
     @Singleton
     @Provides
@@ -24,7 +25,7 @@ object AppModule {
         val gson = GsonBuilder().setLenient().create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://universities.hipolabs.com/")
+            .baseUrl(BASE_URL)
             .client(clientProvider)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

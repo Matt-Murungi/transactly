@@ -15,10 +15,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import com.example.myapplication.models.UniversityModelItem
+import com.example.myapplication.models.TransactionHistory
 
 @Composable
-fun UniversityDialog(onDismissRequest: () -> Unit, university: UniversityModelItem?) {
+fun ModalDialog(onDismissRequest: () -> Unit) {
     Dialog(onDismissRequest = { onDismissRequest() }) {
         Card(
             modifier = Modifier
@@ -28,46 +28,7 @@ fun UniversityDialog(onDismissRequest: () -> Unit, university: UniversityModelIt
             shape = RoundedCornerShape(16.dp),
         ) {
             Column(modifier = Modifier.padding(10.dp)) {
-                Text(
-                    text = "${university?.name}",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = "${university?.country}",
-                    modifier = Modifier,
-                    fontWeight = FontWeight.SemiBold
-                )
-                Spacer(modifier = Modifier.height(20.dp))
-
-                Divider()
-                Spacer(modifier = Modifier.height(20.dp))
-                Text(
-                    text = "Domains",
-                    modifier = Modifier,
-                    fontWeight = FontWeight.W400,
-                    fontSize = 15.sp,
-
-                    )
-                Spacer(modifier = Modifier.height(5.dp))
-
-                Text(
-                    text = "${university?.domains}",
-                    modifier = Modifier
-                )
-                Spacer(modifier = Modifier.height(15.dp))
-
-                Text(
-                    text = "Web Pages",
-                    modifier = Modifier,
-                    fontWeight = FontWeight.W400,
-                    fontSize = 15.sp,
-                )
-                Spacer(modifier = Modifier.height(5.dp))
-
-                Text(
-                    text = "${university?.web_pages}"
-                )
+         
             }
         }
     }
