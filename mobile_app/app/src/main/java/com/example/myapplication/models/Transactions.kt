@@ -1,6 +1,6 @@
 package com.example.myapplication.models
 
-data class TransactionHistory(
+data class Transactions(
     val count: Int,
     val next: String,
     val previous: String,

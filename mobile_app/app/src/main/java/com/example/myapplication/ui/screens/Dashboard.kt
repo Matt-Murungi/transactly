@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.ui.AppViewModel
 import com.example.myapplication.ui.components.BarGraph
 import com.example.myapplication.ui.components.CustomCard
 import com.example.myapplication.ui.components.LegendItem
@@ -37,7 +38,7 @@ import com.github.tehras.charts.piechart.PieChartData
 import com.github.tehras.charts.piechart.renderer.SimpleSliceDrawer
 
 @Composable
-fun DashBoard() {
+fun DashboardScreen(viewModel: AppViewModel) {
     val showDialog = remember { mutableStateOf(false) }
     val selectedDate = remember { mutableStateOf("") }
     val barGraphData = listOf(
@@ -101,12 +102,7 @@ fun DashBoard() {
             )
             Spacer(modifier = Modifier.height(20.dp))
             CustomCard {
-                Text(
-                    text = "Transaction Types",
-                    fontWeight = FontWeight.W700,
-                    fontSize = 25.sp,
-                    modifier = Modifier.padding(20.dp)
-                )
+                Text(text = "Transactions", fontWeight = FontWeight.W600, fontSize = 15.sp,  modifier = Modifier.padding(20.dp))
 
                 Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp)){
                     LegendItem(color = PieColor1, label = "MTN")
