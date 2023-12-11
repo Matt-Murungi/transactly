@@ -33,6 +33,7 @@ android {
         }
     }
     compileOptions {
+
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -79,7 +80,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
 
-
+// Calendar
+    implementation("com.marosseleng.android:compose-material3-datetime-pickers:0.7.2")
 
 
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
@@ -100,6 +102,12 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+//    Charts
+    implementation ("com.github.tehras:charts:0.2.4-alpha")
+
+
+
 }
 
 // Allow references to generated code
