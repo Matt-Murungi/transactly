@@ -1,6 +1,8 @@
 package com.example.myapplication.ui.components
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,6 +22,7 @@ import com.marosseleng.compose.material3.datetimepickers.date.ui.dialog.DatePick
 import java.time.LocalDate
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun DatePickerComposable(
@@ -36,7 +39,10 @@ fun DatePickerComposable(
 
             }, title = {
                 Text(text = title)
-            })
+            }, initialDate = LocalDate.of(2023, 10 , 1)
+
+        )
+
 
     }
 }

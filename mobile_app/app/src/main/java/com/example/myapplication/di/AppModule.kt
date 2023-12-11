@@ -10,13 +10,14 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    private const val BASE_URL = "https://9d49-41-210-141-31.ngrok-free.app"
+    private const val BASE_URL = "https://e3bb-41-210-146-57.ngrok-free.app"
 
     @Singleton
     @Provides
@@ -44,6 +45,8 @@ object AppModule {
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
+            .connectTimeout(20, TimeUnit.SECONDS)
+            .readTimeout(20, TimeUnit.SECONDS)
             .build()
     }
 

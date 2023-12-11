@@ -12,5 +12,5 @@ data class Result(
     val id: Int,
     val service: String,
     val txfinish: String,
-    val type: String
+    val type: String,
 )

@@ -50,6 +50,37 @@ class TransactionsByDate(APIView):
             transactions = Transactions.objects.filter(
                 txfinish__gte=start_datetime, txfinish__lte=end_datetime
             )
+        try:
+            if (
+                "start_date" not in request.query_params
+                and "end_date" not in request.query_params
+            ):
+                transactions = Transactions.objects.all()
+            elif "end_date" not in request.query_params:
+                start_date = request.query_params["start_date"]
+                start_datetime = datetime.strptime(start_date, "%Y-%m-%d")
+                transactions = Transactions.objects.filter(txfinish__gte=start_datetime)
+            elif "start_date" not in request.query_params:
+                end_date = request.query_params["end_date"]
+                end_datetime = datetime.strptime(end_date, "%Y-%m-%d")
+                transactions = Transactions.objects.filter(txfinish__lte=end_datetime)
 
-        serializer = TransactionSerializer(transactions, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                start_date = request.query_params["start_date"]
+                end_date = request.query_params["end_date"]
+                start_datetime = datetime.strptime(start_date, "%Y-%m-%d")
+                end_datetime = datetime.strptime(end_date, "%Y-%m-%d")
+                if start_datetime > end_datetime:
+                    return Response(
+                        "Start date can not be greater than end date",
+                        status=status.HTTP_400_BAD_REQUEST,
+                    )
+                transactions = Transactions.objects.filter(
+                    txfinish__gte=start_datetime, txfinish__lte=end_datetime
+                )
+
+            serializer = TransactionSerializer(transactions, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        except ValueError as e:
+            return Response("Incorrect date inputs ", status=status.HTTP_400_BAD_REQUEST)
