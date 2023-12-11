@@ -8,9 +8,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 @Composable
 fun CustomIconButton(
     icon: ImageVector,
+    onClick: () -> Unit
 
 ){
-    IconButton(onClick = { /*TODO*/ }) {
+    IconButton(onClick = onClick) {
         Icon(imageVector =icon , contentDescription = "Button")
     }
 }

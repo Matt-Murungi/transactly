@@ -10,7 +10,10 @@ import javax.inject.Singleton
 @Singleton
 interface AppAPI{
     @GET("/transactions")
-    suspend fun fetchAllTransactions():Response<Transactions>
+    suspend fun fetchAllTransactions(
+        @Query(ApiConstants.LIMIT) limit: String?,
+        @Query(ApiConstants.OFFSET) offset: String?
+    ):Response<Transactions>
 
     @GET("/transactions/filter")
     suspend fun fetchFilteredTransactions(

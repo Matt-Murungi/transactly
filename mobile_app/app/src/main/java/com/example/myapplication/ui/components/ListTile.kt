@@ -1,10 +1,7 @@
 package com.example.myapplication.ui.components
 
-import android.widget.ListView
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -35,7 +31,8 @@ import androidx.compose.ui.unit.sp
 fun ListTile(
     icon: ImageVector,
     label: String,
-
+    trailing: String,
+    subtitle: String,
     onClick: () -> Unit,
 ) {
     Card(
@@ -48,6 +45,7 @@ fun ListTile(
             .clickable {
                 onClick()
             }
+            .padding(vertical = 10.dp)
 //            .border(width = 2.dp, color = Color.LightGray)
     ) {
 
@@ -75,12 +73,12 @@ fun ListTile(
 
                 Column {
                     Text(text = label, style = TextStyle(fontSize = 15.sp))
-                    Text(text = "label", style = TextStyle(fontSize = 15.sp))
+                    Text(text = subtitle, style = TextStyle(fontSize = 15.sp))
                 }
             }
             Spacer(modifier = Modifier.width(18.dp))
 
-            Text(text = "label", style = TextStyle(fontSize = 15.sp))
+            Text(text = trailing, style = TextStyle(fontSize = 11.sp))
 
         }
 
@@ -91,7 +89,7 @@ fun ListTile(
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun displayListView() {
-    ListTile(icon = Icons.Outlined.Info, label = "Test Listtile") {
+//    ListTile(icon = Icons.Outlined.Info, label = "Test Listtile") {
 
-    }
+//    }
 }
